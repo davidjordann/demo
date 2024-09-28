@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tiendademo</title>
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/products.css">
+    <link rel="stylesheet" href="css/cart.css">
+    <link rel="stylesheet" href="css/product-details.css">
+    <link rel="stylesheet" href="css/checkout.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4; /* Fondo suave */
+        }
+
+        .close-button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+        }
+        
+        .close-icon {
+            width: 24px; /* Ajusta el tamaño según necesites */
+            height: auto;
+        }
+
+        #cart-header {
+            background-color: #007bff; /* Azul profesional */
+            padding: 10px;
+            text-align: center;
+        }
+
+        #cart-header h2 {
+            margin: 0;
+            color: #ffffff; /* Letras blancas en el encabezado */
+        }
+
+        #cart-container {
+            background-color: #ffffff; /* Fondo blanco para el carrito */
+            color: #333333; /* Letras oscuras para el contenido del carrito */
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+        }
+
+        #checkout-button {
+            background-color: #28a745; /* Verde para el botón */
+            color: white; /* Letras blancas */
+            border: none;
+            border-radius: 5px; /* Bordes redondeados */
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        #checkout-button:hover {
+            background-color: #218838; /* Verde más oscuro al pasar el mouse */
+            color: #ffffff; /* Letras blancas */
+        }
+
+        #cart-items {
+            list-style-type: none; /* Eliminar viñetas de la lista */
+            padding: 0;
+        }
+
+        #cart-items li {
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #e0e0e0; /* Borde ligero */
+            border-radius: 4px; /* Bordes redondeados */
+            background-color: #f9f9f9; /* Fondo gris claro */
+        }
+
+        #cart-items li:hover {
+            background-color: #f1f1f1; /* Fondo más oscuro al pasar el mouse */
+        }
+
+        #total-price {
+            font-weight: bold; /* Texto en negrita */
+        }
+
+        /* Estilo para el formulario de checkout */
+        #checkout-form label {
+            display: block;
+            margin: 5px 0 5px;
+        }
+
+        #checkout-form input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc; /* Borde gris */
+            border-radius: 4px; /* Bordes redondeados */
+        }
+
+        #checkout-form button {
+            background-color: #007bff; /* Azul para el botón */
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        #checkout-form button:hover {
+            background-color: #0056b3; /* Azul más oscuro al pasar el mouse */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="imagenes/logodemo.jpg" alt="Logo de Tiendademo" class="logo">
+        <h1>Tiendademo</h1>
+        <nav>
+            <ul id="category-menu">
+                <!-- Las categorías se generarán dinámicamente desde el archivo JS -->
+            </ul>
+        </nav>
+        <img src="imagenes/carritocompras.png" alt="Carrito de Compras" id="cart-icon">
+    </header>
+
+    <section id="products-section">
+        <!-- Los productos de cada categoría se cargarán aquí dinámicamente -->
+    </section>
+
+    <!-- Contenedor del carrito de compras -->
+    <div id="cart-container" class="hidden">
+        <div id="cart-header">
+            <button id="close-cart" class="close-button">
+                <img src="imagenes/eliminar1.png" alt="Cerrar carrito" class="close-icon">
+            </button>
+            <h2>Carrito de Compras</h2>
+        </div>
+    <!--    <div id="empty-cart-message">No has agregado ningún producto al carrito.</div>
+     -->   <div id="confirmation-message" class="hidden"></div>
+        <ul id="cart-items"></ul>
+        <button id="total-price-button" disabled>subTotal: $<span id="total-price">0</span></button>
+        <button id="total-price-button" disabled>costos de envio: $<span id="total-price">0</span></button>
+        <button id="total-price-button" disabled>total: $<span id="total-price">0</span></button>
+        <button id="checkout-button">Finalizar Compra</button>
+
+        <!-- Formulario para datos de envío -->
+        <div id="checkout-form" class="hidden">
+            <h3>Datos de Envío</h3>
+            <form id="form">
+                <label for="name">Nombre:</label>
+                <input type="text" id="name" required>
+
+                <label for="address">Dirección:</label>
+                <input type="text" id="address" required>
+
+                <label for="neighborhood">Barrio:</label>
+                <input type="text" id="neighborhood" required>
+
+                <label for="phone">Teléfono:</label>
+                <input type="tel" id="phone" pattern="[0-9]{10}" required title="El número de teléfono debe tener 10 dígitos">
+
+                <label for="suggestion">Sugerencia (opcional):</label>
+                <input type="text" id="suggestion">
+
+                <button type="submit">Enviar Pedido</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="product-details" class="hidden">
+        <div id="details-content">
+            <!-- Información del producto -->
+        </div>
+        <button id="close-details">Cerrar</button>
+    </div>
+
+    <footer>
+        <p>© 2024 Tiendademo. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="app/categories.js"></script>
+    <script src="app/cart.js"></script>
+    <script src="app/app.js"></script>
+</body>
+</html>

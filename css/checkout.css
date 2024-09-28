@@ -1,0 +1,25 @@
+/* Estilos del formulario de checkout */
+#checkout-form {
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+    padding: 15px;
+    margin-top: 20px;
+}
+
+#checkout-form h3 {
+    margin-top: 0;
+}
+
+#checkout-form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+#checkout-form input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+}

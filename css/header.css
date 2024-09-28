@@ -1,0 +1,43 @@
+/* Estilos del header y navegación */
+header {
+    background-color: #ff7e9a;
+    padding: 20px;
+    text-align: center;
+    color: white;
+    position: relative;
+}
+
+.logo {
+    width: 100px;
+    display: block;
+    margin: 0 auto 10px auto;
+}
+
+h1 {
+    margin: 10px 0;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #ff7e9a;
+    color: white;
+    margin-top: 20px;
+}

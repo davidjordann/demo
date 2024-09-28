@@ -1,0 +1,55 @@
+/* Estilos para el detalle del producto */
+#product-details {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    max-width: 600px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    z-index: 1000;
+}
+
+.hidden {
+    display: none;
+}
+
+#close-details {
+    background-color: #ff7e9a;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+#total-price-button {
+    background-color: #e0e0e0; /* Color neutro predeterminado */
+    color: #333; /* Color del texto */
+    border: none; /* Sin borde */
+    padding: 10px 20px; /* Espaciado interno */
+    border-radius: 5px; /* Bordes redondeados */
+    font-size: 16px; /* Tamaño de fuente */
+    cursor: default; /* Cursor de no clic */
+    display: inline-block;
+    margin-top: 10px; /* Espaciado superior */
+    font-weight: bold;
+}
+
+#total-price-button:hover {
+    background-color: #d0d0d0; /* Color al pasar el cursor */
+}
+
+/* Posiciona el botón de eliminar en la esquina superior derecha */
+/* Posiciona el botón de eliminar en la esquina superior derecha */
+.remove-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: transparent; /* Fondo transparente */
+    border: none;                  /* Quitar bordes del botón */
+    cursor: pointer;                /* Cambia el cursor cuando pasas sobre el botón */
+    padding: 5px;                   /* Añade un poco de espacio alrededor del ícono */
+}
